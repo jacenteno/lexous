@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import yaml
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,18 +27,25 @@ SECRET_KEY = 'django-insecure-%%^-dve^y-=m-t)rm&82^utva0*ulma0tv&fs9^&ot=)(qb4(f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    
+    
+    'lexouscore',
+    'cobros',
 ]
 
 MIDDLEWARE = [
@@ -99,23 +108,54 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = 'login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es-ES'
+
+TIME_ZONE = 'UTC-5'
 
 USE_I18N = True
 
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+#config_path = os.path.join(os.path.dirname(
+#    os.path.abspath(__file__)), 'config.yaml')
+
+# Cargar configuraciones desde el archivo YAML
+#with open(config_path, 'r') as config_file:
+#    config = yaml.safe_load(config_file)
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Servidor SMTP de Gmail
+EMAIL_PORT = 587  # Puerto TLS para Gmail
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False  # Deja esto en False
+EMAIL_HOST_USER = config['correo']['email_address']
+EMAIL_HOST_PASSWORD = config['correo']['email_password']
+DEFAULT_FROM_EMAIL = config['correo']['email_address']
+SERVER_EMAIL = config['correo']['email_password']
+
+TWILIO_ACCOUNT_SID = config['twilio']['twilio_account_sid']
+TWILIO_AUTH_TOKEN = config['twilio']['twilio_auth_token']
+TWILIO_PHONE_NUMBER = config['twilio']['twilio_phone_number']
+
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
