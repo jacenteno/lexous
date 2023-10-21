@@ -1,0 +1,29 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Django Tailwind</title>
+    {% tailwind_css %}
+    <h1>LEXOUS RELOADER....</h1>
+    
+  </head>
+  <body>
+    <!-- Utiliza clases de Tailwind CSS para diseñar tu contenido -->
+
+    <div class="bg-blue-500 p-4">
+        <h1 class="text-3xl text-white">Mi Página con Tailwind CSS</h1>
+    </div>
+
+    <div class="container mx-auto mt-8">
+        <div class="bg-gray-200 p-4">
+            <p class="text-lg text-gray-800">Este es un ejemplo de Tailwind CSS.</p>
+        </div>
+
+        <div class="mt-4">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Botón de Ejemplo
+            </button>
+        </div>
+    </div>
+</body>
+</html>
