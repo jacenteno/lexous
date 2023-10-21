@@ -14,8 +14,10 @@ from pathlib import Path
 import os
 import yaml
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,6 +30,10 @@ SECRET_KEY = 'django-insecure-%%^-dve^y-=m-t)rm&82^utva0*ulma0tv&fs9^&ot=)(qb4(f
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -42,8 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-
-
+    'tailwind',
+    'theme',
+    'django_browser_reload',
     'lexouscore',
     'cobros',
 ]
@@ -56,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
 ROOT_URLCONF = 'lexouscore.urls'
@@ -77,6 +85,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lexouscore.wsgi.application'
+
+TAILWIND_APP_NAME = 'theme'
 
 
 # Database
@@ -149,6 +159,7 @@ TWILIO_PHONE_NUMBER = config['twilio']['twilio_phone_number']
 
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
