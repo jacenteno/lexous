@@ -33,8 +33,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_interface',
-    "colorfield",
+    # 'admin_interface',
+    # "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    
-    
+
+
     'lexouscore',
     'cobros',
 ]
@@ -116,22 +116,21 @@ LOGIN_URL = 'login'
 
 LANGUAGE_CODE = 'es-ES'
 
-TIME_ZONE = 'UTC-5'
+TIME_ZONE = 'America/Panama'
 
 USE_I18N = True
 
 USE_TZ = True
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-#config_path = os.path.join(os.path.dirname(
-#    os.path.abspath(__file__)), 'config.yaml')
+config_path = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), 'config.yaml')
 
 # Cargar configuraciones desde el archivo YAML
-#with open(config_path, 'r') as config_file:
-#    config = yaml.safe_load(config_file)
+with open(config_path, 'r') as config_file:
+    config = yaml.safe_load(config_file)
 
 # settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
