@@ -8,23 +8,79 @@
     <h1>LEXOUS RELOADER....</h1>
     
   </head>
-  <body>
-    <!-- Utiliza clases de Tailwind CSS para diseñar tu contenido -->
-
-    <div class="bg-blue-500 p-4">
-        <h1 class="text-3xl text-white">LEXOUS RELOADER...Tailwind CSS</h1>
+  <body class="bg-gray-100">
+    <!-- Menú Lateral -->
+    <div class="bg-blue-500 text-white w-64 min-h-screen fixed">
+        <div class="p-4">
+            <h1 class="text-3xl font-extrabold">Mi Logo</h1>
+        </div>
+        <ul class="mt-8">
+            <li class="py-2 px-4 hover:bg-blue-600">
+                <a href="#" class="block">
+                    <i class="fas fa-home mr-2"></i> Inicio
+                </a>
+            </li>
+            <li class="py-2 px-4 hover:bg-blue-600">
+                <a href="#" class="block">
+                    <i class="fas fa-info-circle mr-2"></i> Acerca de
+                </a>
+            </li>
+            <li class="py-2 px-4 hover:bg-blue-600">
+                <a href="#" class="block">
+                    <i class="fas fa-cogs mr-2"></i> Servicios
+                </a>
+            </li>
+        </ul>
     </div>
 
-    <div class="container mx-auto mt-8">
-        <div class="bg-gray-200 p-4">
-            <p class="text-lg text-gray-800">LEXOUS RELOADER... Tailwind CSS.</p>
-        </div>
+    <!-- Contenido Principal -->
+    <div class="ml-64">
+        <!-- Encabezado (Header) -->
+        <header class="bg-blue-500 p-4 text-white">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="#" class="text-3xl font-bold">Mi Sitio Web</a>
 
-        <div class="mt-4">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                LEXOUS RELOADER...
-            </button>
+                <!-- Barra de Navegación Superior -->
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="hover:underline">Inicio</a></li>
+                        <li><a href="#" class="hover:underline">Acerca de</a></li>
+                        <li><a href="#" class="hover:underline">Servicios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Contenido del Sitio -->
+        <div class="container mx-auto mt-8 p-4 bg-white rounded shadow">
+            <!-- Barra de Búsqueda -->
+            <div class="w-full max-w-md mx-auto">
+                <div class="relative">
+                    <input type="text" class="w-full border rounded py-2 px-3" placeholder="Buscar..." />
+                    <button class="absolute top-0 right-0 mt-2 mr-3 text-blue-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenido del Sitio -->
+            <div class="mt-8">
+                <!-- Aquí puedes agregar el contenido de tu sitio web -->
+            </div>
         </div>
     </div>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-blue-500 text-white text-center p-4">
+        &copy; 2023 Mi Sitio Web Creativo
+    </footer>
+
+    <script>
+        // JavaScript para controlar el menú lateral en pantallas pequeñas
+        document.getElementById('menu-button').addEventListener('click', function () {
+            document.querySelector('.bg-blue-500').classList.toggle('hidden');
+        });
+    </script>
 </body>
+</html>
 </html>
